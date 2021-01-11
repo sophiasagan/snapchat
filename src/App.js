@@ -4,6 +4,7 @@ import WebcamCapture from "./WebcamCapture";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Preview from "./Preview";
 import Chats from "./Chats";
+import ChatView from "./ChatView";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <div className="app__body">
           <Switch>
             <Route path="/chats/view">
-              <Chats />
+              <ChatView />
             </Route>
             <Route path="/chats">
               <Chats />

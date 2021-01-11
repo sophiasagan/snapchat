@@ -5,8 +5,8 @@ import "./Chat.css";
 import ReactTimeago from "react-timeago";
 import { selectImage } from "./features/appSlice";
 import { useDispatch } from "react-redux";
-import { db } from "./firebase";
 import { useHistory } from "react-router-dom";
+import { db } from "./firebase";
 
 function Chat({ id, username, timestamp, read, imageUrl, profilePic }) {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function Chat({ id, username, timestamp, read, imageUrl, profilePic }) {
 
   const open = () => {
     if (!read) {
-      dispatchEvent(selectImage(imageUrl));
+      dispatch(selectImage(imageUrl));
       db.collection("posts").doc(id).set(
         {
           read: true,
@@ -31,7 +31,7 @@ function Chat({ id, username, timestamp, read, imageUrl, profilePic }) {
       <div className="chat__info">
         <h4>{username}</h4>
         <p>
-          Tap to view -{" "}
+          {!read && 'Tap to view -'}{" "}
           <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} />
         </p>
       </div>
