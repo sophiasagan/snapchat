@@ -12,7 +12,7 @@ export const appSlice = createSlice({
       state.user = action.payload;
     },
     logout: (state) => {
-      state.user= null
+      state.user = null
     },
     selectImage: (state, action) => {
       state.selectedImage = action.payload
